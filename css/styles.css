@@ -18,7 +18,7 @@
 body {
   font-family: var(--font-text);
   font-size: 20px;
-  line-height: calc(30 / 20);
+  line-height: 1.5;
   color: var(--main-txt-cl);
 }
 
@@ -46,6 +46,14 @@ a {
   color: currentColor;
 }
 
+img {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
 .container {
   width: 1378px;
   padding-left: 20px;
@@ -53,6 +61,11 @@ a {
   margin-left: auto;
   margin-right: auto;
   outline: 1px solid blue;
+}
+
+.section {
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 /* ----------------------Header-----------------------  */
@@ -92,8 +105,6 @@ a {
   background-color: transparent;
   border: 2px solid var(--acent-bg-cl);
   border-radius: 10px;
-
-  cursor: pointer;
 }
 
 .header-list {
@@ -103,4 +114,106 @@ a {
 
 .header-item:not(:last-child) {
   margin-right: 50px;
+}
+
+/* -----------------Block Hero ------------------ */
+.hero {
+  padding-top: 0;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+}
+.hero-group {
+  width: 540px;
+}
+
+.hero-title {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.25;
+  color: var(--dark-txt-cl);
+}
+
+.hero-text {
+  margin-bottom: 60px;
+  font-size: 24px;
+}
+
+.hero-button {
+  font-size: 36px;
+  letter-spacing: 0.03em;
+  padding: 23px 64px;
+  min-width: 426px;
+  min-height: 100px;
+  border-radius: 10px;
+  color: var(--btn-txt-cl);
+  background-color: var(--acent-bg-cl);
+}
+
+/*----------------------- Skills--------------- */
+
+.skills-title {
+  margin-bottom: 60px;
+  font-weight: 600;
+  font-size: 48px;
+  color: var(--dark-txt-cl);
+  text-align: center;
+}
+
+.skills-card-list {
+  display: flex;
+  gap: 30px;
+}
+
+.skills-subtitle {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--acent-txt-cl);
+}
+
+.skills-text {
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.skills-text-mb24 {
+  margin-bottom: 24px;
+}
+
+.skills-button {
+  min-width: 230px;
+  padding: 16px 64px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--btn-txt-cl);
+  background-color: var(--acent-bg-cl);
+  border-radius: 10px;
+}
+
+.skills-card {
+  padding: 32px 18px;
+  width: 426px;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.skills-card:last-child {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.skills-inner-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.skills-card-wrapper {
+  width: 324px;
 }
