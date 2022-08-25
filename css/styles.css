@@ -60,7 +60,7 @@ button {
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
-  outline: 1px solid blue;
+  /* outline: 1px solid blue; */
 }
 
 .section {
@@ -80,18 +80,67 @@ button {
 }
 
 .logo-header {
+  min-width: 130px;
   margin-right: 236px;
   font-size: 36px;
   color: var(--dark-txt-cl);
+  animation: spring 4000ms ease-in-out 500ms both;
 }
 
 .logo-header-secondary {
   color: var(--grey-txt-cl);
 }
 
+@keyframes spring {
+  0% {
+    opacity: 0;
+    letter-spacing: -0.5em;
+  }
+  30% {
+    opacity: 0.8;
+    letter-spacing: 0.08em;
+  }
+  60% {
+    opacity: 1;
+    letter-spacing: normal;
+  }
+  80% {
+    color: lightblue;
+    text-shadow: none;
+  }
+  100% {
+    color: lightblue;
+    text-shadow: 5px -5px 4px rgba(0, 0, 0, 0.4);
+  }
+}
+
 .header-link {
+  position: relative;
   font-weight: 500;
   color: var(--acent-bg-cl);
+}
+
+/* початковий стаи псевдоелемента*/
+.header-link::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  transform: translateY(20px) scaleX(0);
+  background-color: var(--acent-bg-cl);
+
+  /*як змінити властивості*/
+  transition: transform 400ms ease-out, background-color 400ms ease-out 1000ms;
+}
+
+/* кінцевий стаи псевдоелемента*/
+.header-link:hover::after {
+  transform: translateY(20px) scaleX(1);
+  background-color: red;
 }
 
 .header-button {
@@ -105,6 +154,13 @@ button {
   background-color: transparent;
   border: 2px solid var(--acent-bg-cl);
   border-radius: 10px;
+  transition: background-color 400ms ease-out, color 400ms ease-out;
+}
+
+.header-button:hover,
+.header-button:focus {
+  background-color: var(--acent-bg-cl);
+  color: var(--btn-txt-cl);
 }
 
 .header-list {
@@ -126,6 +182,7 @@ button {
   justify-content: space-between;
 }
 .hero-group {
+  position: relative;
   width: 540px;
 }
 
@@ -151,6 +208,68 @@ button {
   border-radius: 10px;
   color: var(--btn-txt-cl);
   background-color: var(--acent-bg-cl);
+}
+/* кінцевий стаи елемента */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(107, 9, 56, 0.4);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+
+  transition: opacity 500ms ease, visibility 500ms ease;
+}
+/* початковий стаи елемента */
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* кінцевий стаи елемента */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  width: 800px;
+  height: 800px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 3px 5px 10px rgba(14, 178, 46, 0.4);
+
+  opacity: 1;
+
+  transition: opacity 500ms ease 200ms, transform 500ms ease 200ms;
+}
+/* початковий стаи елемента */
+
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+}
+
+.hero-button-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(50%) translateY(-50%);
+  display: flex;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.hero-button-icon {
+  fill: blue;
 }
 
 /*----------------------- Skills--------------- */
