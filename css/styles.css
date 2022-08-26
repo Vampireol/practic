@@ -240,8 +240,13 @@ button {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
 
-  width: 800px;
-  height: 800px;
+  /* для кейфрема run */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  width: 500px;
+  min-height: 500px;
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 3px 5px 10px rgba(14, 178, 46, 0.4);
@@ -262,14 +267,152 @@ button {
   top: 0;
   right: 0;
   transform: translateX(50%) translateY(-50%);
-  display: flex;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: none;
   background-color: transparent;
+
+  /* animation: run 10s linear both; */
 }
+
+/* @keyframes run {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translateX(-400px) translateY(-400px);
+  }
+  50% {
+    transform: translateX(-400px) translateY(400px);
+  }
+  75% {
+    transform: translateX(400px) translateY(400px);
+  }
+  100% {
+    transform: translateX(400px) translateY(-400px);
+  }
+} */
 
 .hero-button-icon {
   fill: blue;
+}
+
+/* ----------------Registration Form----------------- */
+
+.form {
+  padding: 50px 40px;
+}
+
+.form__field {
+  position: relative;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.form__field:last-child {
+  margin-bottom: 35px;
+}
+
+.form__label {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  display: block;
+  padding: 0 6px;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  background-color: var(--btn-txt-cl);
+  transition: transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label {
+  transform: translateX(-40px) translateY(-38px) scale(0.9);
+}
+
+.form__input {
+  width: 100%;
+  height: 50px;
+
+  border: 1px solid var(--acent-bg-cl);
+  border-radius: 10px;
+  padding: 10px 50px;
+}
+
+.form__input::placeholder {
+  opacity: 0;
+  transition: opacity 400ms ease 100ms;
+}
+
+.form__input:focus::placeholder {
+  opacity: 1;
+}
+
+.form__icon {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+}
+
+.notification {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+.notification__warning {
+  fill: rgb(255, 179, 0);
+  opacity: 0;
+  transition: 400ms;
+}
+
+.form__input:not(:placeholder-shown):required:invalid ~ .notification > .notification__warning {
+  opacity: 1;
+}
+
+.notification__success {
+  fill: green;
+  opacity: 0;
+}
+
+.form__input:not(:placeholder-shown):required:valid ~ .notification > .notification__success {
+  opacity: 1;
+}
+
+.warning-text {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) translateY(110%);
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(255, 179, 0);
+  opacity: 0;
+
+  transition: opacity 400ms ease;
+}
+
+.form__input:focus:not(:placeholder-shown):required:invalid ~ .warning-text {
+  opacity: 1;
+}
+
+.form__button {
+  background-color: var(--acent-bg-cl);
+  color: var(--btn-txt-cl);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 130px;
+  min-height: 60px;
+  padding: 10px;
 }
 
 /*----------------------- Skills--------------- */
